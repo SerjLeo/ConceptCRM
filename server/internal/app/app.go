@@ -7,9 +7,6 @@ import (
 
 func RunApp() {
 
-	//fs := http.FileServer(http.Dir("../build"))
-	//http.Handle("/", fs)
-
 	fs := http.FileServer(http.Dir("../build/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
