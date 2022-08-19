@@ -7,11 +7,11 @@ import (
 
 func RunApp() {
 
-	fs := http.FileServer(http.Dir("../build/static"))
+	fs := http.FileServer(http.Dir("./build/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "../build/index.html")
+		http.ServeFile(w, r, "./build/index.html")
 	})
 
 	log.Println("Listening on :3000...")
