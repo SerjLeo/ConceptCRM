@@ -1,0 +1,28 @@
+.app__container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu_button {
+  position: fixed;
+  top: 50%;
+  transform: translate(-32px, -50%);
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--color-light-grey);
+}
+
+.app__content {
+  flex-grow: 1;
+  padding: 24px 48px;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 768px) {
+    padding: 16px;
+  }
+}
