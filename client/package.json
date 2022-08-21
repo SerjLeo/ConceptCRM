@@ -41,7 +41,7 @@
     "ci": "yarn install --frozen-lockfile",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/ --ext .js,.jsx,.ts,.tsx --ignore-path ../.gitignore",
     "lint:fix": "yarn lint -- --fix"
