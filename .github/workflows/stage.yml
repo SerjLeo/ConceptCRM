@@ -7,6 +7,7 @@ on:
 
 jobs:
   prepare:
+    name: Lint & Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -21,33 +22,9 @@ jobs:
         working-directory: ./client
         run: yarn ci
 
-      - name: Save environment
-        uses: actions/upload-artifact@v3
-        with:
-          name: env
-          path: ./client
-
-  linting:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get environment
-        uses: actions/download-artifact@v3
-        with:
-          name: env
-
       - name: Lint
         working-directory: ./client
         run: yarn lint
-
-  test:
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get environment
-        uses: actions/download-artifact@v3
-        with:
-          name: env
 
       - name: Run unit tests
         working-directory: ./client
