@@ -38,6 +38,7 @@
     "prettier": "^2.7.1"
   },
   "scripts": {
+    "ci": "install --frozen-lockfile",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
