@@ -8,13 +8,13 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      run: cd ./client
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        run: cd ./client
 
-    - name: Install dependencies and lint
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-      run: yarn ci && yarn lint
+      - name: Install dependencies and lint
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+        run: yarn ci && yarn lint
