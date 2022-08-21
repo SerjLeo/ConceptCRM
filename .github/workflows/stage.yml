@@ -6,15 +6,33 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test:
+  prepare:
     runs-on: ubuntu-latest
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      run: cd ./client
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install dependencies and lint
-      uses: actions/setup-node@v3
+      - name: Prepare node.js environment
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      run: yarn ci && yarn lint
+
+      - name: Install dependencies
+        working-directory: ./client
+        run: yarn ci
+
+  linting:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint
+        working-directory: ./client
+        run: yarn lint
+
+  test:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run unit tests
+        working-directory: ./client
+        run: yarn test
