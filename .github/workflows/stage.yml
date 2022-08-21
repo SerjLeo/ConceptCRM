@@ -15,8 +15,10 @@ jobs:
       - name: Change directory
         run: cd ./client
 
-      - name: Install dependencies and lint
+      - name: Prepare node.js environment
         uses: actions/setup-node@v3
         with:
           node-version: 16
+
+      - name: Install dependencies and lint
         run: yarn ci && yarn lint
