@@ -25,7 +25,7 @@ jobs:
     needs: prepare
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - run: ls ../
       - name: Lint
         working-directory: ./client
         run: yarn lint
