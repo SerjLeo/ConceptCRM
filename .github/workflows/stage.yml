@@ -71,7 +71,7 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
           script: |
-            docker pull $IMAGE_NAME:latest
-            docker stop $CONTAINER_NAME
-            docker rm $CONTAINER_NAME
+            docker pull $IMAGE_NAME:latest &&
+            docker stop $CONTAINER_NAME &&
+            docker rm $CONTAINER_NAME &&
             docker run -name $CONTAINER_NAME -d -p 3000:3000 $IMAGE_NAME
