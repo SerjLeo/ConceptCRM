@@ -31,7 +31,7 @@ jobs:
         run: yarn test
 
   shipping:
-    name: Hello docker
+    name: Prepare docker image
     needs: check
     runs-on: ubuntu-latest
     steps:
