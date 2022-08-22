@@ -72,6 +72,5 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           script: |
             docker pull ${{ env.IMAGE_NAME }}:latest &&
-            docker stop ${{ env.CONTAINER_NAME }} &&
-            docker rm ${{ env.CONTAINER_NAME }} &&
+            docker ps -aq --filter name=${{ env.CONTAINER_NAME }} | xargs -r docker stop | xargs -r docker rm &&
             docker run -name ${{ env.CONTAINER_NAME }} -d -p 3000:3000 ${{ env.IMAGE_NAME }}
