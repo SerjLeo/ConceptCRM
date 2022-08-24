@@ -1,13 +1,15 @@
 name: Stage
 
 on:
-  push:
-    branches: [ develop ]
+  pull_request:
+    branches: [ master ]
+    types:
+      - closed
   workflow_dispatch:
 
 env:
-  CONTAINER_NAME: concept-frontend-dev
-  IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}-dev
+  CONTAINER_NAME: concept-frontend-prod
+  IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ github.event.repository.name }}-prod
 
 jobs:
   build:
@@ -93,4 +95,4 @@ jobs:
           script: |
             docker pull ${{ env.IMAGE_NAME }}:latest &&
             docker ps -aq --filter name=${{ env.CONTAINER_NAME }} | xargs -r docker stop | xargs -r docker rm &&
-            docker run --name ${{ env.CONTAINER_NAME }} -d -p 3001:3000 ${{ env.IMAGE_NAME }}
+            docker run --name ${{ env.CONTAINER_NAME }} -d -p 3000:3000 ${{ env.IMAGE_NAME }}
