@@ -40,7 +40,7 @@
   "scripts": {
     "ci": "yarn install --frozen-lockfile",
     "start": "react-scripts start",
-    "build": "react-scripts build CI=false",
+    "build": "CI=false && react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/ --ext .js,.jsx,.ts,.tsx --ignore-path ../.gitignore",
