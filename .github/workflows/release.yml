@@ -1,4 +1,4 @@
-name: Stage
+name: Production
 
 on:
   pull_request:
@@ -81,7 +81,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
 
   deploy:
-    name: Staging deploy
+    name: Production deploy
     runs-on: ubuntu-latest
     needs: shipping
     steps:
