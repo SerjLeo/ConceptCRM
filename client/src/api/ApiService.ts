@@ -1,7 +1,7 @@
 import axios, {Method} from 'axios'
 
 const apiInstance = axios.create({
-  baseURL: process.env.API_URL || 'http://dev.api.serjleodev'
+  baseURL: process.env.REACT_APP_API_URL || 'http://dev.api.serjleodev'
 })
 
 apiInstance.interceptors.request.use((config) => {

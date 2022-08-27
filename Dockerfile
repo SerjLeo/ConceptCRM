@@ -1,8 +1,8 @@
 FROM node:14 AS front-builder
 
 ENV NODE_ENV production
-ENV WEBSITE_TITLE ConceptCRM
-ENV API_URL http://api.serjleodev
+ENV REACT_APP_WEBSITE_TITLE ConceptCRM
+ENV REACT_APP_API_URL http://api.serjleodev
 
 WORKDIR /client
 COPY ./client ./

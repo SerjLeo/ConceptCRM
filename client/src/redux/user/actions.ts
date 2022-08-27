@@ -31,12 +31,12 @@ export const checkoutAuthToken = () => async (dispatch: Dispatch<UserAction>) =>
   }
   dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
 
-  // const {data, errors} = await ApiService.apiRequest('/auth/check', 'GET')
-  // if (errors) {
-  //   dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
-  //   return
-  // }
-  // dispatch({type: UserActionTypes.AUTH_COMPLETED, payload: {user: data}})
+  const {data, errors} = await ApiService.apiRequest('/auth/check', 'GET')
+  if (errors) {
+    dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
+    return
+  }
+  dispatch({type: UserActionTypes.AUTH_COMPLETED, payload: {user: data}})
 }
 
 export const signOut = () => async (dispatch: Dispatch<UserAction>) => {

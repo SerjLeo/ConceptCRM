@@ -1,1 +1,1 @@
-cd ./client && export WEBSITE_TITLE=my_app API_URL=http://api.serjleodev && yarn start
+cd ./client && REACT_APP_WEBSITE_TITLE=my_app REACT_APP_API_URL=http://api.serjleodev yarn start
