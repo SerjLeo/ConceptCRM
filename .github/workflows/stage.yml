@@ -73,6 +73,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
+          file: dev.Dockerfile
           tags: ${{ env.IMAGE_NAME }}:latest
 
       - name: Image digest
