@@ -20,7 +20,7 @@ export type UserState = {
 }
 
 export type UserSignInForm = {
-    email: string
+    username: string
     password: string
 }
 

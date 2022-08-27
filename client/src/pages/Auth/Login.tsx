@@ -11,7 +11,7 @@ const Login: React.FC = () => {
   const {signIn} = useActions()
 
   const {getFormFieldProps, onFormSubmit} = useFormInput({
-    email: '',
+    username: '',
     password: ''
   })
 
@@ -23,7 +23,7 @@ const Login: React.FC = () => {
     <div className={styles.form_container}>
       <h2 className={styles.form__title}>Вход</h2>
       <form onSubmit={onFormSubmit(handleSubmit)} className={styles.form}>
-        <TextField label='Имя пользователя' {...getFormFieldProps('email')} required/>
+        <TextField label='Имя пользователя' {...getFormFieldProps('username')} required/>
         <TextField label='Пароль' type='password' {...getFormFieldProps('password')} required/>
         <Button disabled={loading} type="submit">Войти</Button>
       </form>
