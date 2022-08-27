@@ -18,8 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "downlevelIteration": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/**/*.test.ts", "src/redux"],
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/redux"]
 }

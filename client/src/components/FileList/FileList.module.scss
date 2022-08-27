@@ -1,0 +1,10 @@
+.fileList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fileList__item {
+  display: flex;
+  cursor: pointer;
+}
