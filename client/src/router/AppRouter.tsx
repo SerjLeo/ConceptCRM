@@ -8,6 +8,7 @@ import useTypedSelector from '../hooks/useTypedSelector'
 import Spinner from '../components/Spinner/Spinner'
 
 const Login = React.lazy(() => import('../pages/Auth/Login'))
+const Documents = React.lazy(() => import('../pages/Documents/Documents'))
 // const Landing = React.lazy(() => import('../pages/Landing/Landing'))
 
 const AppRouter = () => {
@@ -42,6 +43,7 @@ const AppRouter = () => {
         element={<GuardedRoute isAuth={isAuth} permission="notAuth"><MainLayout/></GuardedRoute>}
       >
         <Route index element={<Login/>} />
+        <Route path="documents" element={<Documents/>} />
         {/*<Route path="login" element={<Login/>}/>*/}
       </Route>
     )

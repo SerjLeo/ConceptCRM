@@ -1,10 +1,12 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import userReducer from './user'
+import documentsReducer from './documents'
 import { composeWithDevTools } from '@redux-devtools/extension'
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({
   user: userReducer,
+  documents: documentsReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

@@ -11,7 +11,7 @@ apiInstance.interceptors.request.use((config) => {
 })
 
 export default class ApiService {
-  static async apiRequest(url: string, method: Method = 'GET', params: Record<string, unknown> = {}) {
+  static async apiRequest(url: string, params: Record<string, unknown> = {}, method: Method = 'GET') {
     try {
       const response = await apiInstance({
         method,

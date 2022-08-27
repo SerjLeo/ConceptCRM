@@ -4,7 +4,7 @@ import {Dispatch} from 'redux'
 
 export const signIn = (form: UserSignInForm) => async (dispatch: Dispatch<UserAction>) => {
   dispatch({ type: UserActionTypes.AUTH_STARTED })
-  const {data, errors} = await ApiService.apiRequest('/auth/sign-in', 'POST', form)
+  const {data, errors} = await ApiService.apiRequest('/auth/sign-in', form, 'POST')
   if(errors) {
     dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
     return
@@ -15,7 +15,7 @@ export const signIn = (form: UserSignInForm) => async (dispatch: Dispatch<UserAc
 
 export const signUp = (form: UserSignUpForm) => async (dispatch: Dispatch<UserAction>) => {
   dispatch({ type: UserActionTypes.AUTH_STARTED })
-  const {data, errors} = await ApiService.apiRequest('/auth/sign-up', 'POST', form)
+  const {data, errors} = await ApiService.apiRequest('/auth/sign-up', form, 'POST')
   if(errors) {
     dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
     return
@@ -31,7 +31,7 @@ export const checkoutAuthToken = () => async (dispatch: Dispatch<UserAction>) =>
   }
   dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
 
-  const {data, errors} = await ApiService.apiRequest('/auth/check', 'GET')
+  const {data, errors} = await ApiService.apiRequest('/auth/check')
   if (errors) {
     dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
     return
