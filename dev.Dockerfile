@@ -2,7 +2,7 @@ FROM node:14 AS front-builder
 
 ENV NODE_ENV production
 ENV REACT_APP_WEBSITE_TITLE ConceptCRMdev
-ENV REACT_APP_API_URL http://dev.api.serjleodev.ru
+ENV REACT_APP_API_URL https://dev.api.serjleodev.ru
 
 WORKDIR /client
 COPY ./client ./
