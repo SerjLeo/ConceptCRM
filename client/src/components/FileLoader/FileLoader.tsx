@@ -4,11 +4,15 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import FileList from '../FileList/FileList';
 
 type FileLoaderProps = {
+  hint?: string
   multiple?: boolean
 }
 
+const DEFAULT_HINT = 'Нажмите, чтобы загрузить файл'
+
 const FileLoader: React.FC<FileLoaderProps> = ({
-  multiple = true
+  multiple = true,
+  hint = DEFAULT_HINT
 }) => {
   const [files, setFiles] = useState<File[]>([])
 
@@ -26,7 +30,7 @@ const FileLoader: React.FC<FileLoaderProps> = ({
       <div>
         <label className={styles.loaderWrap} htmlFor="files">
           <AttachFileIcon/>
-          <div>Загрузите файл</div>
+          <div>{hint}</div>
         </label>
         <input className={styles.fileInput} id="files" type="file" onChange={uploadFile} multiple={multiple}/>
       </div>
