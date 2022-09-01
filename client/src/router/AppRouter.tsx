@@ -6,9 +6,11 @@ import NotFound from '../pages/NotFound/NotFound'
 import MainLayout from '../layouts/MainLayout'
 import useTypedSelector from '../hooks/useTypedSelector'
 import Spinner from '../components/Spinner/Spinner'
+import EmptyLayout from '../layouts/EmptyLayout';
 
 const Login = React.lazy(() => import('../pages/Auth/Login'))
 const Documents = React.lazy(() => import('../pages/Documents/Documents'))
+const Calculators = React.lazy(() => import('../pages/Calculators/Calculators'))
 // const Landing = React.lazy(() => import('../pages/Landing/Landing'))
 
 const AppRouter = () => {
@@ -40,11 +42,9 @@ const AppRouter = () => {
     return (
       <Route
         path="/"
-        element={<GuardedRoute isAuth={isAuth} permission="notAuth"><MainLayout/></GuardedRoute>}
+        element={<GuardedRoute isAuth={isAuth} permission="notAuth"><EmptyLayout/></GuardedRoute>}
       >
-        <Route index element={<Login/>} />
-        <Route path="documents" element={<Documents/>} />
-        {/*<Route path="login" element={<Login/>}/>*/}
+        <Route path="login" element={<Login/>}/>
       </Route>
     )
   }
@@ -57,8 +57,8 @@ const AppRouter = () => {
         path="/"
         element={<GuardedRoute isAuth={isAuth}><MainLayout/></GuardedRoute>}
       >
-        {/*<Route path="dashboard" element={<Dashboard/>}/>*/}
-        {/*<Route path="categories" element={<CategoriesList/>}>*/}
+        <Route path="documents" element={<Documents/>} />
+        <Route path="calculators" element={<Calculators/>} />
         {/*	<Route path="create" element={<CreateCategoryForm/>}/>*/}
         {/*	<Route path=":categoryId" element={<CategoryPage/>}/>*/}
         {/*</Route>*/}

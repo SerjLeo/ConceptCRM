@@ -9,7 +9,7 @@ type GuardedRouteProps = {
 const GuardedRoute = ({children, isAuth, permission = 'auth'}: GuardedRouteProps) => {
 
   if(!isAuth && permission === 'auth') return <Navigate to='/login' replace/>
-  if(isAuth && permission === 'notAuth') return <Navigate to='/documents' replace/>
+  if(isAuth && permission === 'notAuth') return <Navigate to='/calculators' replace/>
 
   return children
 }

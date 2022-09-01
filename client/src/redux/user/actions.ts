@@ -5,7 +5,7 @@ import {Dispatch} from 'redux'
 export const signIn = (form: UserSignInForm) => async (dispatch: Dispatch<UserAction>) => {
   dispatch({ type: UserActionTypes.AUTH_STARTED })
   const {data, errors} = await ApiService.apiRequest('/auth/login', form, 'POST')
-  if(errors) {
+  if(errors || !data) {
     dispatch({type: UserActionTypes.AUTH_ERROR, payload: {error: 'Error'}})
     return
   }

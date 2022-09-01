@@ -13,6 +13,7 @@ const Documents = () => {
 
   return (
     <div>
+      <div className="pageTitle">Документы</div>
       <AddDocumentForm/>
       {documents.map(document => <div>{document.name}</div>)}
     </div>

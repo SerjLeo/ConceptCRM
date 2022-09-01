@@ -1,5 +1,6 @@
 .auth_form {
   margin-top: 80px;
+  height: max-content !important;
   @media screen and (max-width: 768px) {
     margin-top: 40px;
   }
