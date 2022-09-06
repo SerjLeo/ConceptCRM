@@ -57,6 +57,7 @@ const AppRouter = () => {
         path="/"
         element={<GuardedRoute isAuth={isAuth}><MainLayout/></GuardedRoute>}
       >
+        <Route index element={<Documents/>} />
         <Route path="documents" element={<Documents/>} />
         <Route path="calculators" element={<Calculators/>} />
         {/*	<Route path="create" element={<CreateCategoryForm/>}/>*/}

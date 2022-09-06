@@ -16,7 +16,6 @@ export type UserState = {
     isAuth: boolean
     loading: boolean
     initialLoading: boolean
-    error: string
 }
 
 export type UserSignInForm = {
@@ -39,7 +38,6 @@ type AuthCompleteAction = {
 
 type AuthErrorAction = {
     type: UserActionTypes.AUTH_ERROR
-    payload: { error: string }
 }
 
 type GetProfileAction = {

@@ -3,6 +3,7 @@ import AppRouter from './router/AppRouter'
 import './assets/styles/app.scss'
 import CssBaseline from '@mui/material/CssBaseline'
 import useActions from './hooks/useActions'
+import Alerts from './components/Alerts/Alert';
 
 const App: React.FC = () => {
   const {checkoutAuthToken} = useActions()
@@ -15,6 +16,7 @@ const App: React.FC = () => {
     <div className="App">
       <CssBaseline />
       <AppRouter/>
+      <Alerts/>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+import {AlertBase} from '../../utils/Alerts';
+
 export enum DocumentsActionTypes {
     GET_DOCUMENTS = 'GET_DOCUMENTS',
     ADD_DOCUMENTS = 'ADD_DOCUMENTS',
@@ -17,7 +19,6 @@ export type DocumentState = {
     documents: Document[]
     loading: boolean
     initialLoading: boolean
-    error: string
 }
 
 export type AddDocumentForm = {
@@ -27,7 +28,7 @@ export type AddDocumentForm = {
 
 type DocumentErrorAction = {
     type: DocumentsActionTypes.DOCUMENTS_ERROR
-    payload: { error: string }
+    payload: { alert: AlertBase }
 }
 
 type GetDocumentsAction = {
