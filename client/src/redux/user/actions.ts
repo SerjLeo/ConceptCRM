@@ -6,14 +6,14 @@ const alertService = new AlertService()
 
 export const signIn = (form: UserSignInForm) => async (dispatch: Dispatch<UserAction>) => {
   dispatch({ type: UserActionTypes.AUTH_STARTED })
-  const {data, errors} = await ApiService.apiRequest('/auth/login', form, 'POST')
-  if(errors || !data) {
+  const {token, errors} = await ApiService.apiRequest('/auth/login', form, 'POST')
+  if(errors || !token) {
     alertService.push({type: 'error', message: 'Неверные данные авторизации'})
     dispatch({type: UserActionTypes.AUTH_ERROR})
     return
   }
-  localStorage.setItem('token', `Bearer ${data}`)
-  dispatch({type: UserActionTypes.AUTH_COMPLETED, payload: {user: data}})
+  localStorage.setItem('token', `Bearer ${token}`)
+  dispatch({type: UserActionTypes.AUTH_COMPLETED, payload: {user: token}})
 }
 
 // export const signUp = (form: UserSignUpForm) => async (dispatch: Dispatch<UserAction>) => {
