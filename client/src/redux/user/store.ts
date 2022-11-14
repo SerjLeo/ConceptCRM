@@ -4,8 +4,7 @@ const UserStateFactory: () => UserState = () => ({
   user: null,
   isAuth: false,
   loading: false,
-  initialLoading: true,
-  error: ''
+  initialLoading: true
 })
 
 export default UserStateFactory

@@ -11,6 +11,7 @@ import EmptyLayout from '../layouts/EmptyLayout';
 const Login = React.lazy(() => import('../pages/Auth/Login'))
 const Documents = React.lazy(() => import('../pages/Documents/Documents'))
 const Calculators = React.lazy(() => import('../pages/Calculators/Calculators'))
+const CalculatorPage = React.lazy(() => import('../pages/Calculators/components/CalculatorPage'))
 // const Landing = React.lazy(() => import('../pages/Landing/Landing'))
 
 const AppRouter = () => {
@@ -59,7 +60,10 @@ const AppRouter = () => {
       >
         <Route index element={<Documents/>} />
         <Route path="documents" element={<Documents/>} />
-        <Route path="calculators" element={<Calculators/>} />
+        <Route path="calculators" >
+          <Route index element={<Calculators/>} />
+          <Route path=":calc_id" element={<CalculatorPage/>} />
+        </Route>
         {/*	<Route path="create" element={<CreateCategoryForm/>}/>*/}
         {/*	<Route path=":categoryId" element={<CategoryPage/>}/>*/}
         {/*</Route>*/}

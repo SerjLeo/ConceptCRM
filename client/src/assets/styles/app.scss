@@ -2,6 +2,13 @@
 @import "variables";
 @import "base";
 @import "fonts";
+@import "Pages/Calculator.module";
+
+.pageTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .pageTitle {
   font-size: 32px;
