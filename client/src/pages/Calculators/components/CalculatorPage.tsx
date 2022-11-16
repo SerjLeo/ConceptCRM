@@ -9,10 +9,13 @@ import {IconMap} from '../entities/constants';
 import useActions from '../../../hooks/useActions';
 import {Button} from '@mui/material';
 import { useForm } from 'react-hook-form';
+import useTypedSelector from '../../../hooks/useTypedSelector';
+import Results from './Results';
 
 const CalculatorPage = () => {
   const { getResult } = useActions()
   const { calc_id } = useParams()
+  const {result} = useTypedSelector(state => state.calculator)
   const [calc, setCalc] = useState<Calculator | null>(CalcList.find(calc => calc.link === calc_id) || null)
 
   const {register, formState: { errors }, reset, handleSubmit} = useForm()
@@ -48,31 +51,36 @@ const CalculatorPage = () => {
         </div>
         <Button type="submit">Расчитать</Button>
       </div>
-      <div className={styles.calcGroups}>
-        {
-          calc.groups.map(group => <div key={group.id} className={styles.calcGroup}>
-            <div className={styles.calcGroupTitle}>{group.title}</div>
-            <div className={styles.calcGroupFields}>
-              {
-                group.fields.map(field => React.createElement(getFieldComponent(field) as any, {
-                  field,
-                  key: field.name,
-                  formProps: {
-                    ...register(field.name, {
-                      required: {
-                        value: true,
-                        message: 'Необходимо заполнить поле'
-                      },
-                      valueAsNumber: true,
-                      setValueAs: (v) => isNaN(Number(v)) ? 0 : Number(v)
-                    }),
-                  },
-                  error: errors[field.name]
-                }))
-              }
-            </div>
-          </div>)
-        }
+      <div className={styles.calcContent}>
+        <div className={styles.calcGroups}>
+          {
+            calc.groups.map(group => <div key={group.id} className={styles.calcGroup}>
+              <div className={styles.calcGroupTitle}>{group.title}</div>
+              <div className={styles.calcGroupFields}>
+                {
+                  group.fields.map(field => React.createElement(getFieldComponent(field) as any, {
+                    field,
+                    key: field.name,
+                    formProps: {
+                      ...register(field.name, {
+                        required: {
+                          value: true,
+                          message: 'Необходимо заполнить поле'
+                        },
+                        valueAsNumber: true,
+                        setValueAs: (v) => isNaN(Number(v)) ? 0 : Number(v)
+                      }),
+                    },
+                    error: errors[field.name]
+                  }))
+                }
+              </div>
+            </div>)
+          }
+        </div>
+        <div>
+          {result && <Results fields={result}/>}
+        </div>
       </div>
     </form>
   );

@@ -43,17 +43,25 @@ export type Calculator = {
     groups: CalcGroup[]
 }
 
+export type ResultField = {
+    name: string
+    value: unknown
+}
+
 export enum CalcActionTypes {
     GET_RESULT = 'GET_RESULT',
     CALC_ERROR = 'CALC_ERROR'
 }
 
 export type CalcState = {
-    result: string
+    result: ResultField[] | null
 }
 
 type GetResultAction = {
     type: CalcActionTypes.GET_RESULT
+    payload: {
+        result: ResultField[]
+    }
 }
 
 type CalcErrorAction = {

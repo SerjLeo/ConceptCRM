@@ -59,7 +59,7 @@ const SelectField: React.FC<SelectFieldProps> = ({field, error, formProps: {
           </Select>
           {error && error.message && <div className={styles.errorMsg}>{error.message}</div>}
         </div>
-        <div>{field.description}</div>
+        <div className='calcFieldDescription'>{field.description}</div>
         {!!field.tooltip && <CustomTooltip text={field.tooltip}/>}
       </div>
     </ThemeProvider>

@@ -5,8 +5,8 @@ import AlertService from '../../utils/Alerts';
 const alertService = new AlertService()
 
 export const getResult = (form: Record<string, unknown>, url: string) => async (dispatch: Dispatch<CalcAction>) => {
-  const {result, errors} = await ApiService.apiRequest(`/calc/${url}`, form, 'POST')
-  if(errors) {
+  const result = await ApiService.apiRequest(`/calc/${url}`, form, 'POST')
+  if(result.errors) {
     alertService.push({type: 'error', message: 'Ошибка при расчетах'})
     dispatch({type: CalcActionTypes.CALC_ERROR})
     return

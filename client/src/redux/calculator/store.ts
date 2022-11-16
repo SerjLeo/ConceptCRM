@@ -1,7 +1,7 @@
 import {CalcState} from './types'
 
 const CalcStateFactory: () => CalcState = () => ({
-  result: ''
+  result: null
 })
 
 export default CalcStateFactory

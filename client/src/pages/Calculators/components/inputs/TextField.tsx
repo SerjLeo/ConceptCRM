@@ -23,7 +23,7 @@ const TextField: React.FC<TextFieldProps> = ({field, error, formProps}) => {
         error={!!error}
         helperText={error && error.message}
       />
-      <div>{field.description}</div>
+      <div className="calcFieldDescription">{field.description}</div>
       {!!field.tooltip && <CustomTooltip text={field.tooltip}/>}
     </div>
   );

@@ -6,7 +6,7 @@ const initialState: CalcState = CalcStateFactory()
 const calcReducer = (state = initialState, action: CalcAction): CalcState => {
   switch (action.type) {
   case CalcActionTypes.GET_RESULT:
-    return {result: ''}
+    return {result: action.payload.result}
   case CalcActionTypes.CALC_ERROR:
   default:
     return state
