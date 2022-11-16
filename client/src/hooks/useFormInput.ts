@@ -5,6 +5,8 @@ import {InputConverter,} from '../utils/Converters'
 export default function useFormInput<T extends Record<string, unknown>, K extends keyof T>(initialValue: T) {
   const [form, setForm] = useState(initialValue)
 
+  // const validators: InputValidator<keyof typeof form>[] = []
+
   const getFormFieldProps = <U>(fieldName: K, converter?: InputConverter<U>, validators: InputValidator<U>[] = [], validationErrorCallback: (error: string) => void = () =>  {}) => {
     return {
       value: form[fieldName],
